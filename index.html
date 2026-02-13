@@ -127,12 +127,6 @@ button{
         <button class="nextBtn">Next</button>
     </div>
 
-    <div class="question" id="q2" style="display:none;">
-        <p style="color:white;">Kapan pertama kali kita ketemu langsung?</p>
-        <input type="date" id="q2input">
-        <button class="nextBtn">Next</button>
-    </div>
-
     <div class="question" id="q3" style="display:none;">
         <p style="color:white;">Kamu sayang aku nggak? 💖</p>
         <button id="yesLove">Yes</button>
@@ -210,7 +204,6 @@ button{
 // ====== GANTI SESUAI TANGGAL ASLI ======
 const correctAnswers = {
     q1: "2025-12-18",
-    q2: "2025-11-14",
     q4: 100
 };
 
@@ -276,13 +269,6 @@ document.querySelectorAll(".question").forEach(q=>{
                 }
             }
 
-            if(q.id==="q2"){
-                if(document.getElementById("q2input").value !== correctAnswers.q2){
-                    alert("Masih salah 😆 kapan pertama kita ketemu?");
-                    return;
-                }
-            }
-
             if(q.id==="q4"){
                 if(parseInt(q4input.value) < correctAnswers.q4){
                     alert("Sayangnya harus 100% donggg 😭💕");
@@ -293,7 +279,13 @@ document.querySelectorAll(".question").forEach(q=>{
             }
 
             q.style.display="none";
-            q.nextElementSibling.style.display="block";
+
+            if(q.id==="q1"){
+                document.getElementById("q3").style.display="block";
+            } else {
+                q.nextElementSibling.style.display="block";
+            }
+
         });
     }
 });
