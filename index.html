@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine? 💕</title>
+<link rel="icon" type="image/jpeg" href="./valentine/image/kita11.jpeg">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    font-family:'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fecfef);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+/* Floating hearts */
+.love{
+    position:absolute;
+    color:white;
+    animation: float 6s linear infinite;
+    opacity:0.7;
+}
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+h1{
+    color:white;
+    text-shadow:0 0 15px pink;
+}
+
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+#yes{ background:#ff4d6d; color:white; }
+#no{ background:white; color:#ff4d6d; }
+
+.success{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    animation: fadeIn 1.5s forwards;
+}
+
+.success p{
+    color:white;
+    font-size:1.5em;
+    line-height:1.5em;
+}
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    margin-top:30px;
+    white-space:nowrap;
+}
+
+.slide-track{
+    display:flex;
+}
+
+.slide-track img{
+    width:200px;
+    height:250px;
+    object-fit:cover;
+    margin:0 15px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    flex-shrink:0;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius:50%;
+}
+
+#questionnaire{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HALAMAN AWAL -->
+<div id="questionCard">
+    <h1>Will You Be My Valentine? 💖</h1>
+    <button id="yes">YES 💕</button>
+    <button id="no">NO 😢</button>
+</div>
+
+<!-- QUESTIONNAIRE -->
+<div class="success" id="questionnaire">
+
+    <h1>Jawab pertanyaannya dulu 💌</h1>
+
+    <div class="question" id="q1">
+        <p style="color:white;">Kita jadian tanggal berapa?</p>
+        <input type="date" id="q1input">
+        <button class="nextBtn">Next</button>
+    </div>
+
+    <div class="question" id="q2" style="display:none;">
+        <p style="color:white;">Kapan pertama kali kita ketemu langsung?</p>
+        <input type="date" id="q2input">
+        <button class="nextBtn">Next</button>
+    </div>
+
+    <div class="question" id="q3" style="display:none;">
+        <p style="color:white;">Kamu sayang aku nggak? 💖</p>
+        <button id="yesLove">Yes</button>
+        <button id="noLove">No</button>
+    </div>
+
+    <div class="question" id="q4" style="display:none;">
+        <p style="color:white;">Seberapa persen sayangnya ke aku? (0-100%)</p>
+        <input type="range" id="q4input" min="0" max="100" value="50">
+        <span id="q4value" style="color:white;">50%</span>
+        <button class="nextBtn">Submit</button>
+    </div>
+
+</div>
+
+<!-- SUCCESS PAGE -->
+<div class="success" id="successPage">
+    <h1>Yeaayyy Terimakasih Sayang ❤️</h1>
+    <p>
+        Happy Valentine Day, sayangku 💖<br>
+        Terima kasih sudah hadir di hidupku dan membuat semuanya terasa lebih indah.<br>
+        Aku sangat bersyukur miliki kamu sayang.<br>
+        Semoga kita selalu bersama, dalam tawa, cerita, dan cinta yang tidak pernah habis 💕
+    </p>
+
+    <div class="slider">
+        <div class="slide-track" id="track">
+            <!-- FOTO ASLI -->
+            <img src="./valentine/image/kita1.jpeg">
+            <img src="./valentine/image/kita2.jpeg">
+            <img src="./valentine/image/kita3.jpeg">
+            <img src="./valentine/image/kita5.jpeg">
+            <img src="./valentine/image/kita6.jpeg">
+            <img src="./valentine/image/kita7.jpeg">
+            <img src="./valentine/image/kita8.jpeg">
+            <img src="./valentine/image/kita9.jpeg">
+            <img src="./valentine/image/kita10.jpeg">
+            <img src="./valentine/image/kita11.jpeg">
+            <img src="./valentine/image/kita12.jpeg">
+            <img src="./valentine/image/kita13.jpeg">
+            <img src="./valentine/image/kita14.jpeg">
+            <img src="./valentine/image/kita15.jpeg">
+            <img src="./valentine/image/kita16.jpeg">
+            <img src="./valentine/image/kita17.jpeg">
+            <img src="./valentine/image/kita18.jpeg">
+
+            <!-- DUPLIKAT UNTUK INFINITE -->
+            <img src="./valentine/image/kita1.jpeg">
+            <img src="./valentine/image/kita2.jpeg">
+            <img src="./valentine/image/kita3.jpeg">
+            <img src="./valentine/image/kita5.jpeg">
+            <img src="./valentine/image/kita6.jpeg">
+            <img src="./valentine/image/kita7.jpeg">
+            <img src="./valentine/image/kita8.jpeg">
+            <img src="./valentine/image/kita9.jpeg">
+            <img src="./valentine/image/kita10.jpeg">
+            <img src="./valentine/image/kita11.jpeg">
+            <img src="./valentine/image/kita12.jpeg">
+            <img src="./valentine/image/kita13.jpeg">
+            <img src="./valentine/image/kita14.jpeg">
+            <img src="./valentine/image/kita15.jpeg">
+            <img src="./valentine/image/kita16.jpeg">
+            <img src="./valentine/image/kita17.jpeg">
+            <img src="./valentine/image/kita18.jpeg">
+        </div>
+    </div>
+</div>
+
+<audio id="music" loop>
+  <source src="./valentine/music/pretty.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// ====== GANTI SESUAI TANGGAL ASLI ======
+const correctAnswers = {
+    q1: "2025-12-18",
+    q2: "2025-11-14",
+    q4: 100
+};
+
+// Floating hearts
+for(let i=0;i<40;i++){
+    let love=document.createElement("div");
+    love.classList.add("love");
+    love.innerHTML="💖";
+    love.style.left=Math.random()*100+"vw";
+    love.style.fontSize=(Math.random()*20+15)+"px";
+    love.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(love);
+}
+
+// YES / NO awal
+let noBtn=document.getElementById("no");
+let yesBtn=document.getElementById("yes");
+let scale=1;
+
+noBtn.addEventListener("click",function(){
+    scale-=0.1;
+    if(scale<=0.2){
+        noBtn.style.display="none";
+    }else{
+        noBtn.style.transform="scale("+scale+")";
+    }
+});
+
+yesBtn.addEventListener("click", function(){
+    document.getElementById("questionCard").style.display="none";
+    document.getElementById("questionnaire").style.display="flex";
+});
+
+// Q3 logic
+document.getElementById("yesLove").addEventListener("click",()=>{
+    document.getElementById("q3").style.display="none";
+    document.getElementById("q4").style.display="block";
+});
+
+document.getElementById("noLove").addEventListener("mouseenter",function(){
+    this.style.position="absolute";
+    this.style.left=Math.random()*window.innerWidth+"px";
+    this.style.top=Math.random()*window.innerHeight+"px";
+});
+
+// Range update
+const q4input = document.getElementById("q4input");
+const q4value = document.getElementById("q4value");
+q4input.addEventListener("input",()=>{
+    q4value.textContent = q4input.value + "%";
+});
+
+// Validasi pertanyaan
+document.querySelectorAll(".question").forEach(q=>{
+    const btn = q.querySelector(".nextBtn");
+    if(btn){
+        btn.addEventListener("click",()=>{
+
+            if(q.id==="q1"){
+                if(document.getElementById("q1input").value !== correctAnswers.q1){
+                    alert("Salahhh 😜 coba ingat lagi tanggal jadian kita!");
+                    return;
+                }
+            }
+
+            if(q.id==="q2"){
+                if(document.getElementById("q2input").value !== correctAnswers.q2){
+                    alert("Masih salah 😆 kapan pertama kita ketemu?");
+                    return;
+                }
+            }
+
+            if(q.id==="q4"){
+                if(parseInt(q4input.value) < correctAnswers.q4){
+                    alert("Sayangnya harus 100% donggg 😭💕");
+                    return;
+                }
+                showAllCorrect();
+                return;
+            }
+
+            q.style.display="none";
+            q.nextElementSibling.style.display="block";
+        });
+    }
+});
+
+// Semua benar
+function showAllCorrect(){
+    const msg = document.createElement("h2");
+    msg.innerText="Yeaayyy semua benar sayanggg 💕🥰";
+    msg.style.color="white";
+    document.getElementById("questionnaire").appendChild(msg);
+
+    setTimeout(()=>{ showSuccess(); },800);
+}
+
+// Success page
+function showSuccess(){
+    document.getElementById("questionnaire").style.display="none";
+    document.getElementById("successPage").style.display="flex";
+    createConfetti();
+    autoScroll();
+    document.getElementById("music").play();
+}
+
+// Slider infinite
+const slider=document.querySelector(".slider");
+const track=document.getElementById("track");
+let speed=0.5;
+function autoScroll(){
+    slider.scrollLeft += speed;
+    if(slider.scrollLeft >= track.scrollWidth/2){
+        slider.scrollLeft=0;
+    }
+    requestAnimationFrame(autoScroll);
+}
+
+// Confetti
+function createConfetti(){
+    const colors=['#ff4d6d','#ff99c8','#ffccf2','#fff0f5','#ffb3c6'];
+    for(let i=0;i<150;i++){
+        const conf=document.createElement('div');
+        conf.classList.add('confetti');
+        conf.style.background=colors[Math.floor(Math.random()*colors.length)];
+        conf.style.left=Math.random()*window.innerWidth+'px';
+        conf.style.top=Math.random()*-window.innerHeight+'px';
+        conf.style.width=conf.style.height=Math.random()*8+4+'px';
+        document.body.appendChild(conf);
+
+        let fall=Math.random()*5+2;
+        function animate(){
+            let top=parseFloat(conf.style.top);
+            conf.style.top=top+fall+'px';
+            if(top>window.innerHeight){
+                conf.remove();
+            }else{
+                requestAnimationFrame(animate);
+            }
+        }
+        animate();
+    }
+}
+
+</script>
+</body>
+</html>
